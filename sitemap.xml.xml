@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.924gt.com/</loc>
+  <priority>1.00</priority>
+  <lastmod>2008-11-24T14:00:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/index.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-11-24T14:00:09+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/specification.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-10-24T13:14:03+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/racing.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-10-24T13:14:02+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/servicing.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-12-23T20:37:15+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/buying.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2009-01-14T13:38:47+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/links.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2009-01-14T13:38:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/924techspecs.pdf</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.924gt.com/docs/924petcatalogue.pdf</loc>
+  <priority>0.64</priority>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>

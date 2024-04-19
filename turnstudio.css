@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Content of turnstudio.css</title>
+</head>
+
+<body>
+<pre>
+
+<!-- BEGIN CSS -->
+
+body {
+
+	padding:0px;
+	line-height: 15px;
+	background-color:white;
+	}
+h1 {
+	margin:30px 0px 13px 0px;
+	padding:0px;
+	font-size:16px;
+	line-height:16px;
+	font-weight:700;
+	color:#0d3388;
+	}
+
+h2 {
+	margin:60px 0px 15px 0px;
+	padding:0px;
+	font-size:16px;
+	line-height:18px;
+	font-weight:700;
+	color:#0d3388;
+	}
+
+
+
+#wrapper {
+    margin:0 auto;
+    width:1000px;
+    text-align:left;
+	font:12px arial;
+	color:#0d3388;
+	font-size:12px;
+}
+
+#Navigation {
+	text-align: justify;
+	font:16px arial;
+	padding:0px;
+	width:500px;
+	}
+
+#Content {
+	text-align: justify;
+	padding:0px;
+	width:1000px;
+	}
+
+p {
+	margin:0px 0px 0px 0px;
+	line-height: 15px;
+	padding:0px;
+	font-weight:400;
+	color:#0d3388;
+	}
+
+b {
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	color:#d90011;
+	font-weight:550;
+	}
+#Content>p {margin:0px;}
+#Content>p+p {text-indent:0px;}
+
+a {
+	color:#09c;
+	text-decoration:none;
+	font-weight:700;
+	text-align: justify;
+	font:arial;
+	}
+a:link {color:#0d3388;}
+a:visited {color:#0d3388;}
+a:hover {background-color:white;
+	color:#d90011;}
+
+a.frame {
+	color:#d90011;
+	text-decoration:none;
+	color:#0d3388;
+	font-weight:700;
+	text-align: justify;
+	}
+a.frame:link {color:#0d3388;
+	font-weight:700;}
+a.frame:visited {color:#0d3388; font-weight:700;}
+a.frame:hover {color:#d90011; font-weight:700;}
+
+a.car {
+	color:#d90011;
+	text-decoration:none;
+	color:#0d3388;
+	font-weight:400;
+	text-align: justify;
+	}
+a.car:link {color:#0d3388;
+	font-weight:400;}
+a.car:visited {color:#0d3388; font-weight:400;}
+a.car:hover {color:#d90011; font-weight:400;}
+
+a.navigation {
+	color:#d90011;
+	text-decoration:none;
+	color:#0d3388;
+	font-weight:400;
+	text-align: justify;
+	}
+a.navigation:link {color:#0d3388;}
+a.navigation:visited {color:#0d3388;}
+a.navigation:hover {color:#d90011;}
+
+
+
+table.mainpage {
+	border-width : 0px;
+	border-color : #070010;
+	border-style : solid;
+	overflow : visible;
+	padding :0px;
+	margin : 0px;
+	text-decoration:none;
+	font-weight:300;
+	text-align: justify;
+	text-align: top-left;
+	vertical-align: top;
+	text-indent: 0px;
+	
+	
+}
+
+table.linkbox {
+	border-width : 0px;
+	border-color : #070010;
+	border-style : solid;
+	overflow : visible;
+	text-decoration:none;
+	font-weight:300;
+	text-align: justify;
+	padding :0px;
+	margin : 0px;
+	text-align: top-left;
+	vertical-align: top;
+	font-weight: normal;
+	text-indent: 0px;
+
+}
+
+#frame {
+    margin:0 auto;
+	font:12px arial;
+    width:300px;
+    text-align:left;
+	font:arial;
+	color:#0d3388;
+	line-height:15px;
+
+}
+
+
+ 
+ div#footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:<length>;
+ }
+ @media screen{
+  body>div#footer{
+   position: fixed;  }
+ }
+ * html body{
+  overflow:hidden;
+ } 
+ * html div#content{
+  height:100%;
+  overflow:auto;
+ }
+
+
+#navcontainer ul
+{
+padding: .2em 0;
+margin: 0;
+list-style-type: none;
+background-color: white;
+color: #FFF;
+width: 100%;
+text-align: center;
+}
+
+li { display: inline; }
+
+li a
+{
+text-decoration: none;
+background-color: white;
+color: #0d3388;
+padding: .2em 1em;
+border-right: 1px solid #fff;
+}
+
+li a:hover
+{
+background-color: white;
+color: #0d3388;
+}
+
+
+
+
+<!-- END CSS -->
+
+</pre>
+</body>
+</html>

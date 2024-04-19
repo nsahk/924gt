@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>924 GTR</title>
+<style type="text/css" media="all">@import "layout1.css";</style>
+<script type="text/javascript">
+      
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["crop/800x200/924kooyman4.jpg", "Copyright Paul Kooyman", alt="Copyright Paul Kooyman", "_new"] //plain image syntax
+fadeimages[1]=["crop/800x200/924kooyman7.jpg", "Copyright Paul Kooyman", alt="Copyright Paul Kooyman","_new"] //image with link and target syntax
+fadeimages[2]=["crop/800x200/924kooyman13.jpg", "Copyright Paul Kooyman",alt="Copyright Paul Kooyman", "_new"] //image with link and target syntax
+fadeimages[3]=["crop/800x200/924kooyman14.jpg", "Copyright Paul Kooyman", alt="Copyright Paul Kooyman", "_new"] //image with link and target syntax
+fadeimages[4]=["crop/800x200/924kooyman15.jpg", "Copyright Paul Kooyman", alt="Copyright Paul Kooyman","_new"] //image with link and target syntax
+fadeimages[5]=["crop/800x200/924gtr2side2.bmp", "Copyright Paul Kooyman", alt="Copyright Paul Kooyman","_new"] //image with link and target syntax
+fadeimages[6]=["crop/800x200/924legrand.jpg", "Copyright Jean Philippe Legrand", alt="Copyright Jean Philippe Legrand","_new"] //image with link and target syntax
+fadeimages[7]=["crop/800x200/944gtp36side1jourdain.jpg", "Copyright Alain Jourdain", alt="Copyright Alain Jourdain","_new"] //image with link and target syntax
+ 
+var fadeimages2=new Array() //2nd array set example. Remove or add more sets as needed.
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages2[0]=["photo1.jpg", "", ""] //plain image syntax
+fadeimages2[1]=["photo2.jpg", "http://www.cssdrive.com", ""] //image with link syntax
+fadeimages2[2]=["photo3.jpg", "http://www.javascriptkit.com", "_new"] //image with link and target syntax
+ 
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</script>
+
+<!-- *** BEGIN CUT Start Code *** -->
+<!--  (* Another free JavaScript © from JavaScript-FX.com *) -->
+
+
+<SCRIPT LANGUAGE="javascript" SRC="/javascript/jsfxfadingrollovers.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+
+	JSFX.Rollover("GTRIMSA1", "crop/400x200/924pbasemarkwindecker2.jpg");
+	JSFX.Rollover("GTRIMSA2", "crop/400x200/924pbasemarkwindecker3.jpg");
+	JSFX.Rollover("GTRIMSA3", "crop/400x200/924pbasemarkwindecker5.jpg");
+	JSFX.Rollover("canon1", "crop/400x200/924jourdainne1.jpg");
+	JSFX.Rollover("canon2", "crop/400x200/924kooyman12.jpg");
+	JSFX.Rollover("canon3", "crop/400x200/924kooyman13.jpg");
+	JSFX.Rollover("whitehall1", "crop/400x200/924whitehall1.jpg");
+	JSFX.Rollover("whitehall2", "crop/400x200/924whitehall2.jpg");
+	JSFX.Rollover("whitehall3", "crop/400x200/924whitehall3.jpg");	
+</SCRIPT>
+
+
+</head>
+
+<body>
+
+
+<div id="Header">
+
+<script type="text/javascript">
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+new fadeshow(fadeimages, 800, 200, 0, 10000, 1, "R")
+</script>
+</div>
+
+<div id="Content">
+
+<div id="navcontainer">
+<ul id="navlist">
+<li id="active"><a href="index.html" id="current">Home</a></li>
+<li><a href="specification.html" title="Engine, Forced Induction, Transmission, Bodywork/Interior, Suspension, Wheels">Specification</a></li>
+<li><a href="racing.html" title="Le Mans 1980-2">Racing</a></li>
+<li><a href="servicing.html" title="Garages/PPI, Maintenance, Parts, Upgrades, Troubleshooting"">Servicing</a></li>
+<li><a href="buying.html" title="For Sale, Dealers, Register / Clubs, Identification">Buying</a></li>
+<li><a href="links.html" title="References, Links, contact etc">Links</a></li>
+</ul>
+</div>
+<br>
+
+	<h1>924 Carrera GTR at Le Mans</h1>
+
+<p>
+
+There were no works 911 variants at Le Mans in 1980.  In keeping with the company's move away from the 911, Porsche entered three works 924 GTRs into the GTP class, 
+as the first move to make the 924 the Le Mans winning successor to the 934/935 within three or four years.  Although down on power (320bhp) against other entrants, the three cars acquitted themselves well, finishing 6th, 12th, 
+and 13th due to reliability, and excellent handling at a wet Le Mans.  <br><br>
+
+In 1981 Porsche entered a 924 GTP and a 944 LM, which used the new 2.5l engine later used in the 924S and 944.  In 1982 924s were entered 
+by privateers, including two cars entered by BF Goodrich using road tyres.  The 924 won the IMSA GTO class in 1981 and the IMSA GT class in 1982, but overall never bettered the Porsche works results, despite the customer cars having more power than the original works cars.  After 1980 Porsche focused on mid-engined cars for the new Group C 
+regulations for 1982, dominating the class and ending factory development of the 924 GTR.<br><br>
+
+The GTRs used the standard 924 block, (931) cylinder head, crankshaft, and con-rods.  The turbo and intercooler were much larger and moved to the inlet side and front of the engine
+ bay respectively.  An aluminium torque tube and titanium drive shafts lightened the drive train components.  A 935-based gearbox was used.<br><br>
+
+
+1980-1982 924 Carrera GTR Le Mans results:
+
+</p> 
+<br>
+
+<table summary="Software or other data table" class="sofT" cellspacing="0">
+
+<tr>
+	<td class="helpHed">Year</td>
+	<td class="helpHed">Team</td>
+	<td class="helpHed">No.</td>
+	<td class="helpHed">Result</td>	
+	<td class="helpHed">Drivers</td>	
+	<td class="helpHed">Class</td>
+	<td class="helpHed">Links</td>
+</tr>
+<tr>
+	<td class="sup">1980</td>
+	<td>Porsche System</td>  
+	<td>4</td> 
+	<td>6th</td>
+	<td>Manfred Schurti, Jurgen Barth</td>
+	<td>GTP</td> 
+	<td><a href="http://www.sparkmodel.com/pics/s0981.html" title="Spark model of #4 car"target="_blank">Model</a></td>
+
+</tr> 
+
+<tr> 
+	<td></td> 
+	<td>Porsche System</td>  
+	<td>2</td> 
+	<td>12th</td>
+	<td>Tony Dron, Andy Rouse</td>
+	<td>GTP</td> 
+	<td><a href="http://www.sparkmodel.com/pics/s0982.html" title="Spark model of #2 car"target="_blank">Model</a></td>
+
+</tr> 
+
+<tr> 
+	<td></td> 
+	<td>Porsche System</td>  
+	<td>3</td> 
+	<td>13th</td>
+	<td>Derek Bell, Al Holbert</td>
+	<td>GTP</td> 
+	<td><a href="http://www.sparkmodel.com/pics/s0983.html" title="Spark model of #3 car"target="_blank">Model</a></td>
+
+</tr> 
+
+<tr> 
+	<td>     </td> 
+	<td></td>  
+	<td></td> 
+	<td></td>
+	<td></td>
+	<td></td> 
+	<td></td>
+
+</tr> 
+
+<tr> 
+	<td>1981</td> 
+	<td>Porsche System</td>  
+	<td>1</td> 
+	<td>7th</td>
+	<td>Jurgen Barth, Walter Rohrl</td>
+	<td>GTP</td> 
+</tr> 
+
+<tr> 
+	<td></td> 
+	<td>Porsche System</td>  
+	<td>36</td> 
+	<td>11th (class win)</td>
+	<td>Manfred Schurti, Andy Rouse</td>
+	<td>IMSA GTO</td> 
+</tr> 
+
+<tr>
+	<td></td>
+	<td>Eminence Racing</td>  
+	<td>73</td> 
+	<td>51st (DNF)</td>
+	<td>Jean-Marie Almeras, Jacques Almeras</td>
+	<td>Group 4</td> 
+</tr> 
+
+<tr> 
+	<td></td> 
+	<td>Porsche Australia</td>  
+	<td>74</td> 
+	<td>DNQ</td>
+	<td>Colin Bond, Peter Brock</td>
+	<td>Group 4</td> 
+</tr> 
+
+<tr> 
+	<td></td> 
+	<td>Canon / GTI</td>  
+	<td>75</td> 
+	<td>DNQ</td>
+	<td>Richard Lloyd, Andy Rouse</td>
+	<td>Group 4</td>
+	<td></td> 
+</tr> 
+
+<tr> 
+	<td>     </td> 
+	<td></td>  
+	<td></td> 
+	<td></td>
+	<td></td>
+	<td></td> 
+	<td></td>
+
+</tr> 
+
+
+<tr>
+	<td>1982</td>
+	<td>BF Goodrich</td>  
+	<td>86</td>
+	<td>16th (class win)</td> 
+	<td>Jim Busby, Doc Bundy, Marcel Mignot</td>
+	<td>IMSA GT</td> 
+	<td><a href="http://www.youtube.com/watch?v=YJ-pbgqV2x4&f" title="BF Goodrich promotional video of 924 GTR at Le mans"target="_blank">Video</a></td>
+</tr> 
+<tr>
+	<td></td>
+	<td>BF Goodrich</td>  
+	<td>87</td>
+	<td>DNF</td> 
+	<td>Paul Miller, Pat Bedard, Manfred Schurti</td>
+	<td>IMSA GT</td> 
+	<td><a href="http://www.youtube.com/watch?v=YJ-pbgqV2x4&f" title="BF Goodrich promotional video of 924 GTR at Le mans"target="_blank">Video</a></td>
+</tr> 
+<tr>
+	<td></td>
+	<td>Canon / GTI</td>  
+	<td>84</td>
+	<td>DNF</td> 
+	<td>Richard Lloyd, Andy Rouse</td>
+	<td>IMSA GT</td> 
+	<td><a href="http://en.wikipedia.org/wiki/GTi_Engineering" title="GTI Engineering Wiki entry"target="_blank">Wiki</a></td>
+
+</tr> 
+</table>
+
+
+
+<br>
+<p>
+
+Le Mans photo acknowledgements and thanks to: Paul Kooyman, Jean-Philippe Legrand, Alain Jourdainne and Francois-Rene Alexandre at 
+<a href="www.photos24hlemans.free.fr" title="photos24hlemans.free.fr"target="_blank">photos24hlemans.free.fr</a> 
+</p>
+
+<br><br>
+
+
+	<h1>Privateer World Championship racing 1981-84</h1>
+
+<p>Privateers entered 924 GTRs in World Championship races in 1981-4.  Richard Lloyd's Canon Cameras / GTI Engineering and the Formel Rennsport Club 
+teams were the most prolific.  Canon/GTI Engineering later had success with a Porsche 956 in Group C.  Any photos of any of the cars below are 
+much appreciated, please send them to CGT924@hotmail.com, with any requests for acknowledgements and cross-links.<br><br> 
+
+
+<h1>Canon Cameras / GTI Engineering</h1>
+
+<p>Richard Lloyd's GTI Engineering was one of the most active 924 GTR racers.  Often pairing with Andy Rouse and occasionally with Jonathan Palmer, the 
+team enjoyed some success in the GT classes.  GTI Engineering later raced a Porsche 956 in Group C.<br><br>
+
+<TABLE border="0" cellpadding="0" cellspacing="0" align="center">
+<TR>
+<TD BACKGROUND="crop/400x200/924jourdainne1.jpg">
+	<IMG NAME="tvscreen2"
+		SRC="crop/400x200/924jourdainne1.jpg" WIDTH="400" HEIGHT="200" class="imgFader"></TD>
+</TR>
+</TABLE>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen2','canon2')"
+	onMouseOut="JSFX.fadeOut('tvscreen2')">Image 2  </a>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen2','canon3')"
+	onMouseOut="JSFX.fadeOut('tvscreen2')">Image 3  </a><br><br>
+
+
+<strong>Results</strong><br>
+1981 1000km Monza, 8th, GT class, #22<br>
+1981 6hr Silverstone, 11th, GT class, #22<br>
+1981 1000km Nurburgring, 15th, GT class, #43<br>
+1981 1000km Brands Hatch, 9th, GT class, #41<br>
+1982 1000km Monza, DNF, GTX class, #97<br>
+1982 6hr Silverstone, DNF, GTO class, #84<br>
+1982 1000km Nurburgring, 5th, GTO class, #58<br>
+1982 24hr Le Mans, DNF, GTO class, #84<br>
+1982 1000km Spa, 15th, GTO class, #84<br>
+1982 6hr Mugello, DNF, GTO class, #22<br>
+1982 1000km Brands Hatch, 17th, GTO class, #34<br>
+
+<br>
+
+
+This car was for sale at John Starkey Cars in 2008.<br><br>
+
+</p>
+
+
+
+<h1>Herman/Miller</h1>
+
+<p>The Herman/Miller car was entered into the 1982 24hrs of Le Mans under the BF Goodrich team name.<br><br>
+
+<TABLE border="0" cellpadding="0" cellspacing="0" align="center">
+<TR>
+<TD BACKGROUND="crop/400x200/924pbasemarkwindecker3.jpg">
+	<IMG NAME="tvscreen"
+		SRC="crop/400x200/924pbasemarkwindecker3.jpg" WIDTH="400" HEIGHT="200" class="imgFader"></TD>
+</TR>
+</TABLE>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen','GTRIMSA1')"
+	onMouseOut="JSFX.fadeOut('tvscreen')">Image 2  </a>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen','GTRIMSA3')"
+	onMouseOut="JSFX.fadeOut('tvscreen')">Image 3  </a><br><br>
+
+
+<strong>Results</strong><br>
+1981 24hr Daytona, placed 22nd, #36<br>
+1981 12hr Sebring, DNS, #36<br>
+1981 6hr Watkins Glen, DNF, #36<br><br>
+These photos are from IMSA GT races in the US, which are yet to be listed.  Many thanks to Mark Windecker.  This is believed to be the car sold by Auto Collection at the Imperial Palace in Las Vegas in 2008.<br><br>
+
+</p>
+
+<br><br>
+
+<h1>Whitehall Promotions</h1>
+
+<p>Drivers Winters, Bergstrom<br><br>
+
+<TABLE border="0" cellpadding="0" cellspacing="0" align="center">
+<TR>
+<TD BACKGROUND="crop/400x200/924whitehall1.jpg">
+	<IMG NAME="tvscreen3"
+		SRC="crop/400x200/924whitehall1.jpg" WIDTH="400" HEIGHT="200" class="imgFader"></TD>
+</TR>
+</TABLE>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen3','whitehall2')"
+	onMouseOut="JSFX.fadeOut('tvscreen3')">Image 2  </a>
+
+<a href=""
+	onMouseOver="JSFX.fadeIn('tvscreen3','whitehall3')"
+	onMouseOut="JSFX.fadeOut('tvscreen3')">Image 3  </a><br><br>
+
+
+<strong>Results</strong><br>
+1981 1000km Monza, 8th, GT class, #22<br>
+1981 6hr Watkins Glen, DNF, GT class, #79<br>
+1981 6hr Mosport, 13th, GTO class, #79<br>
+1981 500 miles Road America, 23rd, GTO class, #79<br>
+<br>
+
+
+This car was for sale at John Starkey Cars in 2008.<br><br>
+
+</p>
+
+
+
+
+<div id="navcontainer">
+<ul id="navlist">
+<li id="active"><a href="index.html" id="current">Home</a></li>
+<li><a href="specification.html" title="Engine, Forced Induction, Transmission, Bodywork/Interior, Suspension, Wheels">Specification</a></li>
+<li><a href="racing.html" title="Le Mans 1980-2">Racing</a></li>
+<li><a href="servicing.html" title="Garages/PPI, Maintenance, Parts, Upgrades, Troubleshooting"">Servicing</a></li>
+<li><a href="buying.html" title="For Sale, Dealers, Register / Clubs, Identification">Buying</a></li>
+<li><a href="links.html" title="References, Links, contact etc">Links</a></li>
+</ul>
+</div>
+<br><br>
+
+<!-- BlueRobot was here. -->
+
+<script language="JavaScript1.2">
+
+/*
+Disable right click script II (on images)- By Dynamicdrive.com
+For full source, Terms of service, and 100s DTHML scripts
+Visit http://www.dynamicdrive.com
+*/
+
+var clickmessage="Sorry, images are owned by copyright holders"
+
+function disableclick(e) {
+if (document.all) {
+if (event.button==2||event.button==3) {
+if (event.srcElement.tagName=="IMG"){
+alert(clickmessage);
+return false;
+}
+}
+}
+else if (document.layers) {
+if (e.which == 3) {
+alert(clickmessage);
+return false;
+}
+}
+else if (document.getElementById){
+if (e.which==3&&e.target.tagName=="IMG"){
+alert(clickmessage)
+return false
+}
+}
+}
+
+function associateimages(){
+for(i=0;i<document.images.length;i++)
+document.images[i].onmousedown=disableclick;
+}
+
+if (document.all)
+document.onmousedown=disableclick
+else if (document.getElementById)
+document.onmouseup=disableclick
+else if (document.layers)
+associateimages()
+</script>
+
+</body>
+</html>

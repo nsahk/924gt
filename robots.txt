@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /bidfor100.html
+Disallow: /wedding.html
+Allow: /
+

@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Content of layout1.css</title>
+</head>
+
+<body>
+<pre>
+
+<!-- BEGIN CSS -->
+
+body {
+
+	padding:0px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color:#333;
+	background-color:white;
+	}
+h1 {
+	margin:30px 0px 15px 0px;
+	padding:0px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:12px;
+	line-height:18px;
+	font-weight:600;
+	color:#000099;
+	}
+
+h2 {
+	margin:0px 0px 15px 0px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	padding:0px;
+	font-size:14px;
+	line-height:24px;
+	font-weight:600;
+	color:#000099;
+	}
+
+
+
+#wrapper {
+    margin:0 auto;
+    width:800px;
+    text-align:left;
+}
+
+
+p {
+	font:12px/20px verdana, arial, helvetica, sans-serif;
+	margin:20px 0px 16px 0px;
+	padding:0px;
+	}
+#Content>p {margin:0px;}
+#Content>p+p {text-indent:30px;}
+
+a {
+	color:#09c;
+	font-size:12px;
+	text-decoration:none;
+	font-weight:600;
+	text-align: justify;
+	font-family: verdana, arial, helvetica, sans-serif;
+	}
+a:link {color:#09c;}
+a:visited {color:#07a;}
+a:hover {background-color:white;}
+
+
+
+
+#Content {
+	text-align: justify;
+	padding:0px;
+	width:800px;
+	}
+
+
+
+
+
+table.helpT
+{ text-align: center;
+font-family: Verdana;
+font-weight: normal;
+font-size: 11px;
+color: #404040;
+width: 500px;
+background-color: #fafafa;
+border: 1px #6699CC solid;
+padding-bottom: 2px;
+border-collapse: collapse;
+border-spacing: 5px; } 
+
+td.helpHed
+{ border-bottom: 1px solid #6699CC;
+border-left: 1px solid #6699CC;
+background-color: #BEC8D1;
+text-align: left;
+vertical-align: text-top;
+text-indent: 10px;
+padding-bottom: 2px;
+font-family: Verdana;
+font-weight: bold;
+font-size: 11px;
+color: #404040; }
+
+td.header
+{ border: 1px solid #6699CC;
+background-color: #BEC8D1;
+text-align: centre;
+vertical-align: text-top;
+padding-bottom: 2px;
+font-family: Verdana;
+font-weight: bold;
+font-size: 11px;
+color: #404040; }
+
+
+td.helpBod
+{ border-bottom: 1px solid #9CF;
+border-top: 0px;
+border-left: 1px solid #9CF;
+border-right: 0px;
+vertical-align: text-top;
+text-align: left;
+padding-bottom: 2px;
+text-indent: 10px;
+font-family: Verdana, sans-serif, Arial;
+font-weight: normal;
+font-size: 11px;
+color: #404040;
+background-color: #fafafa; }
+
+table.sofT
+{ text-align: top-left;
+vertical-align: top;
+font-family: Verdana;
+margin-left: auto;
+margin-right: auto;
+font-weight: normal;
+text-indent: 10px;
+padding-bottom: 2px;
+font-size: 11px;
+color: #404040;
+width: 800px;
+background-color: #fafafa;
+border: 1px #6699CC solid;
+border-collapse: collapse;
+border-spacing: 5px; } 
+
+
+table.header
+{ text-align: centre;
+vertical-align: top;
+font-family: Verdana;
+font-weight: normal;
+text-indent: 0px;
+padding-bottom: 0px;
+font-size: 11px;
+color: #404040;
+width: 800px;
+background-color: #fafafa;
+border: 0px #6699CC solid;
+border-spacing: 0px; }
+
+
+ 
+ div#footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:<length>;
+ }
+ @media screen{
+  body>div#footer{
+   position: fixed;  }
+ }
+ * html body{
+  overflow:hidden;
+ } 
+ * html div#content{
+  height:100%;
+  overflow:auto;
+ }
+
+
+#navcontainer ul
+{
+padding: .2em 0;
+margin: 0;
+list-style-type: none;
+background-color: white;
+color: #FFF;
+width: 100%;
+font: normal 100% arial, helvetica, sans-serif;
+text-align: center;
+}
+
+li { display: inline; }
+
+li a
+{
+text-decoration: none;
+background-color: white;
+color: #FFF;
+padding: .2em 1em;
+border-right: 1px solid #fff;
+}
+
+li a:hover
+{
+background-color: white;
+color: #09c;
+}
+
+
+
+
+<!-- END CSS -->
+
+</pre>
+</body>
+</html>
